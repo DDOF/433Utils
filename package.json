@@ -4,7 +4,8 @@
   "description": "This project is a portage in TypeScript of the repository https://github.com/ninjablocks/433Utils",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "git submodule update --init --recursive && cd 433Utils/RPi_utils && /usr/bin/make"
   },
   "keywords": [],
   "author": {
