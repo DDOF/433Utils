@@ -5,8 +5,9 @@
   "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "git submodule update --init --recursive && cd 433Utils/RPi_utils && /usr/bin/make && cd ../../ && tsc .",
-    "build": "rm -rf ./build && tsc",
+    "build:dependencies": "git submodule update --init --recursive && cd 433Utils/RPi_utils && /usr/bin/make",
+    "build:typescript": "rm -rf ./build && tsc",
+    "build": "npm run build:dependencies && npm run build:typescript",
     "start": "npm run build && node build/index.js"
   },
   "keywords": [],
