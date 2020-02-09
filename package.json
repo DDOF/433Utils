@@ -1,0 +1,15 @@
+{
+  "name": "433-utils",
+  "version": "1.0.0",
+  "description": "This project is a portage in TypeScript of the repository https://github.com/ninjablocks/433Utils",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Baudev",
+    "email": "baudev.contact@gmail.com"
+  },
+  "license": "ISC"
+}
