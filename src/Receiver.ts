@@ -11,7 +11,7 @@ export default class Receiver {
         if(!Number.isInteger(this.pin)){
             throw Error("PIN must be an integer.");
         }
-        this.sniffer = spawn('./../custom433Utils/customRFSniffer ', [ this.pin ]);
+        this.sniffer = spawn(__dirname + '/../custom433Utils/customRFSniffer ', [ this.pin ]);
     }
 
     /**

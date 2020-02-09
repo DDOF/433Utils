@@ -21,7 +21,7 @@ export default class Transmitter {
         if(!Number.isInteger(this.pin)){
             throw Error("PIN must be an integer.");
         }
-        this.sniffer = spawn('./../custom433Utils/customSend ', [ this.systemCode, this.unitCode, this.command, this.pulseLength, this.pin ]);
+        this.sniffer = spawn(__dirname + '/../custom433Utils/customSend ', [ this.systemCode, this.unitCode, this.command, this.pulseLength, this.pin ]);
     }
 
     /**
