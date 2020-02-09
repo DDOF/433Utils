@@ -5,7 +5,7 @@ export default class Receiver {
     protected sniffer: any;
     protected pin: number;
 
-    constructor(pin: number) {
+    constructor(pin: number = 0) {
         this.pin = pin;
         // we check the validity of the PIN
         if(!Number.isInteger(this.pin)){

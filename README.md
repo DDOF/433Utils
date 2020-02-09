@@ -12,7 +12,7 @@ The `.cpp` files have been modified (in `/custom433Utils/`) to pass the PIN as a
 This listener allows you to listen to data received by the receiver on the specified PIN.
 
 ```typescript
-let receiver = new Receiver(0);
+let receiver = new Receiver(0); // Set PIN
 receiver.setOnReceiveListener((data) => {
     // handle data value
 });
