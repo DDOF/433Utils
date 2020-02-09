@@ -21,7 +21,7 @@ export default class Receiver {
     setOnReceiveListener(onReceiveListener: (data: number) => void) {
         this.sniffer.stdout.on( 'data', (data: number) => {
             // for each message received
-            onReceiveListener(data);
+            onReceiveListener(Number(data));
         } );
     }
 
