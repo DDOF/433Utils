@@ -2,15 +2,21 @@
   "name": "433-utils",
   "version": "1.0.0",
   "description": "This project is a portage in TypeScript of the repository https://github.com/ninjablocks/433Utils",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "git submodule update --init --recursive && cd 433Utils/RPi_utils && /usr/bin/make"
+    "install": "git submodule update --init --recursive && cd 433Utils/RPi_utils && /usr/bin/make && cd ../../ && tsc .",
+    "build": "rm -rf ./build && tsc",
+    "start": "npm run build && node build/index.js"
   },
   "keywords": [],
   "author": {
     "name": "Baudev",
     "email": "baudev.contact@gmail.com"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^13.7.0",
+    "typescript": "^3.7.5"
+  }
 }
