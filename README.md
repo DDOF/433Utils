@@ -42,3 +42,13 @@ You can find a simplistic example in the `example.ts` file.
 ## Note
 
 The PIN parameters correspond to those of the WiringPi library. The mapping table can be found [here](http://wiringpi.com/wp-content/uploads/2013/03/pins.pdf).
+
+This project needs:
+
+- Raspberry PI
+- 433 Mhz Transmitter (TX)
+- 433 Mhz Receiver (RX)
+
+<p align="center">
+  <img src="schema.png">
+</p>
