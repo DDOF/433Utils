@@ -20,7 +20,12 @@ receiver.setOnReceiveListener((data) => {
 
 ### Send
 
-**Soon...**
+```typescript
+let transmitter = new Transmitter(123, 2, 1, 0, 0);
+transmitter.setOnSendListener(((systemCode, unitCode, command) => {
+    // logic here
+}));
+```
 
 ## Note
 
