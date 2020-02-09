@@ -21,10 +21,11 @@ receiver.setOnReceiveListener((data) => {
 ### Send
 
 ```typescript
-let transmitter = new Transmitter(123, 2, 1, 0, 0);
-transmitter.setOnSendListener(((systemCode, unitCode, command) => {
-    // logic here
-}));
+let transmitter = new Transmitter( 1);
+transmitter.send(123, 2, 1)
+    .then((values) => {
+        // message sent
+    });
 ```
 
 ## Note

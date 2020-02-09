@@ -4,48 +4,32 @@ export default class Transmitter {
 
     protected sniffer: any;
     protected pin: number;
-    protected systemCode: number;
-    protected unitCode: number;
-    protected pulseLength: number;
-    protected command: number; // Command is 0 for OFF and 1 for ON
 
-
-    constructor(systemCode: number, unitCode: number, command: number, pulseLength: number = 0, pin: number = 0) {
-        this.pin = pin;
-        this.systemCode = systemCode;
-        this.unitCode = unitCode;
-        this.command = command;
-        this.pulseLength = pulseLength;
-
-        // we check the validity of the PIN
-        if(!Number.isInteger(this.pin)){
+    constructor(pin: number = 0) {
+        if(!Number.isInteger(pin)){
             throw Error("PIN must be an integer.");
         }
-        this.sniffer = spawn(__dirname + '/../custom433Utils/customSend ', [ this.systemCode, this.unitCode, this.command, this.pulseLength, this.pin ]);
+        // we check the validity of the PIN
+        this.pin = pin;
     }
 
     /**
-     * For each data received
-     * @param onSendListener
+     * Sends the message
+     * @param systemCode
+     * @param unitCode
+     * @param command Command is 0 for OFF and 1 for ON
+     * @param pulseLength
      */
-    setOnSendListener(onSendListener: (systemCode: number, unitCode: number, command: number) => void) {
-        this.sniffer.stdout.on( 'data', (data: string) => {
-            // for each message sent
-            let values = data.split(",");
-            onSendListener(Number(values[0]), Number(values[1]), Number(values[2]));
-        } );
+    send(systemCode: number, unitCode: number, command: number, pulseLength: number = 0): Promise<[number, number, number]>{
+        this.sniffer = spawn(__dirname + '/../custom433Utils/customSend ', [ systemCode, unitCode, command, pulseLength, this.pin ]);
+
+        return new Promise((resolve => {
+            this.sniffer.stdout.on('data', (data: string) => {
+                // for each message sent
+                let values = data.split(",");
+                return resolve([Number(values[0]), Number(values[1]), Number(values[2])]);
+            });
+        }));
     }
-
-    /**
-     * When the child process exited
-     * @param onCloseListener
-     */
-    setOnCloseListener(onCloseListener: (code: number) => void) {
-        this.sniffer.on( 'close', (code: number) => {
-            return onCloseListener(code);
-        } );
-    }
-
-
 
 }
