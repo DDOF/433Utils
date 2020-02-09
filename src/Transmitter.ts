@@ -1,3 +1,8 @@
+/**
+ * 09/02/2020
+ * @author Baudev
+ */
+
 const { spawn } = require( 'child_process' );
 
 export default class Transmitter {

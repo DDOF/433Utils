@@ -5,6 +5,15 @@ This repository simply calls the various executables of the ported library.
 
 The `.cpp` files have been modified (in `/custom433Utils/`) to pass the PIN as argument (and thus not to build the files each time the PIN is modified).
 
+## Installation
+
+```
+git clone https://github.com/baudev/433Utils.git
+cd 433Utils/
+npm install
+npm run build
+```
+
 ## Usage
 
 ### Receive
@@ -21,12 +30,14 @@ receiver.setOnReceiveListener((data) => {
 ### Send
 
 ```typescript
-let transmitter = new Transmitter( 1);
+let transmitter = new Transmitter(1); // Set PIN
 transmitter.send(123, 2, 1)
     .then((values) => {
         // message sent
     });
 ```
+
+You can find a simplistic example in the `example.ts` file.
 
 ## Note
 
