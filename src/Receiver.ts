@@ -7,30 +7,31 @@ export default class Receiver {
 
     constructor(pin: number) {
         this.pin = pin;
+        // we check the validity of the PIN
         if(!Number.isInteger(this.pin)){
             throw Error("PIN must be an integer.");
         }
-        this.sniffer = spawn('./../custom433Utils/customRFSniffer ' + this.pin);
+        this.sniffer = spawn('./../custom433Utils/customRFSniffer ', [ this.pin ]);
     }
 
     /**
      * For each data received
-     * @param listener
+     * @param onReceiveListener
      */
-    onReceive(listener: (data: number) => {}) {
+    setOnReceiveListener(onReceiveListener: (data: number) => void) {
         this.sniffer.stdout.on( 'data', (data: number) => {
             // for each message received
-            listener(data);
+            onReceiveListener(data);
         } );
     }
 
     /**
      * When the child process exited
-     * @param listener
+     * @param onCloseListener
      */
-    onClose(listener: (code: number) => {}) {
+    setOnCloseListener(onCloseListener: (code: number) => void) {
         this.sniffer.on( 'close', (code: number) => {
-            return listener(code);
+            return onCloseListener(code);
         } );
     }
 
