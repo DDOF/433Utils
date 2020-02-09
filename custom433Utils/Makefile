@@ -1,0 +1,13 @@
+
+# Defines the RPI variable which is needed by rc-switch/RCSwitch.h
+CXXFLAGS=-DRPI
+
+all: customRFSniffer
+
+customRFSniffer: ./../433Utils/rc-switch/RCSwitch.o customRFSniffer.o
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) $+ -o $@ -lwiringPi -lwiringPiDev -lcrypt
+
+
+clean:
+	$(RM) ./../433Utils/rc-switch/*.o *.o send codesend servo RFSniffer
+
