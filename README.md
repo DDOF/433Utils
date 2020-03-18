@@ -47,5 +47,5 @@ This project needs:
 - 433 Mhz Receiver (RX)
 
 <p align="center">
-  <img src="schema.png">
+  <img src="https://github.com/baudev/433Utils/blob/master/schema.png?raw=true">
 </p>
