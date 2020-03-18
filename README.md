@@ -8,10 +8,7 @@ The `.cpp` files have been modified (in `/custom433Utils/`) to pass the PIN as a
 ## Installation
 
 ```
-git clone https://github.com/baudev/433Utils.git
-cd 433Utils/
-npm install
-npm run build
+npm i 433-utils
 ```
 
 ## Usage
