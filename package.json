@@ -1,6 +1,6 @@
 {
   "name": "433-utils",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "This project is a portage in TypeScript of the repository https://github.com/ninjablocks/433Utils",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -8,7 +8,11 @@
     "build": "rm -rf ./build && tsc",
     "install": "npm run build:dependencies"
   },
-  "keywords": ["433", "TypeScript", "Node"],
+  "keywords": [
+    "433",
+    "TypeScript",
+    "Node"
+  ],
   "author": {
     "name": "Baudev",
     "email": "baudev.contact@gmail.com"
