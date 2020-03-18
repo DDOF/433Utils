@@ -2,11 +2,13 @@
   "name": "433-utils",
   "version": "1.0.4",
   "description": "This project is a portage in TypeScript of the repository https://github.com/ninjablocks/433Utils",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dependencies": "git submodule update --init --recursive && cd custom433Utils/ && /usr/bin/make",
     "build": "rm -rf ./build && tsc",
-    "install": "npm run build:dependencies"
+    "install": "npm run build && npm run build:dependencies"
   },
   "keywords": [
     "433",

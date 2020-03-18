@@ -34,8 +34,6 @@ transmitter.send(123, 2, 1)
     });
 ```
 
-You can find a simplistic example in the `example.ts` file.
-
 ## Note
 
 The PIN parameters correspond to those of the WiringPi library. The mapping table can be found [here](http://wiringpi.com/wp-content/uploads/2013/03/pins.pdf).
