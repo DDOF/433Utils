@@ -1,7 +1,7 @@
 import Receiver from "./Receiver";
 import Transmitter from "./Transmitter";
 
-export default {
+export {
     Receiver,
     Transmitter
 }
