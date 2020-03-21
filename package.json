@@ -7,8 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dependencies": "git submodule update --init --recursive && cd custom433Utils/ && /usr/bin/make",
-    "build": "rm -rf ./build && tsc",
-    "install": "npm run build && npm run build:dependencies"
+    "build": "tsc",
+    "install": "npm run build:dependencies"
   },
   "keywords": [
     "433",

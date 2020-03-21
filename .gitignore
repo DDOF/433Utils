@@ -106,7 +106,4 @@ dist
 # Idea files
 .idea/
 
-# Build files
-build/
-
 *.iml
