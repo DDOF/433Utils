@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dependencies": "git submodule update --init --recursive && cd custom433Utils/ && /usr/bin/make",
     "build": "tsc",
-    "install": "npm run build:dependencies"
+    "preinstall": "npm run build:dependencies",
+    "postinstall": "npm run build"
   },
   "keywords": [
     "433",
