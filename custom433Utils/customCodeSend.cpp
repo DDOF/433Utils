@@ -15,12 +15,12 @@ pulselength - pulselength in microseconds
 (Use RF_Sniffer.ino to check that RF signals are being produced by the RPi's transmitter
 or your remote control)
 */
-#include "../433Utils/rc-switch/RCSwitch.h"
+#include "../rc-switch/RCSwitch.h"
 #include <stdlib.h>
 #include <stdio.h>
 
-
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
 
     // This pin is not the first pin on the RPi GPIO header!
     // Consult https://projects.drogon.net/raspberry-pi/wiringpi/pins/
@@ -32,7 +32,8 @@ int main(int argc, char *argv[]) {
     int pulseLength = 0;
 
     // If no command line argument is given, print the help text
-    if (argc == 1) {
+    if (argc == 1)
+    {
         printf("Usage: %s decimalcode [PIN] [protocol] [pulselength]\n", argv[0]);
         printf("decimalcode\t- As decoded by RFSniffer\n");
         printf("PIN\t- optional PIN code\n");
@@ -43,19 +44,24 @@ int main(int argc, char *argv[]) {
 
     // Change protocol and pulse length accroding to parameters
     int code = atoi(argv[1]);
-    if (argc >= 3) PIN = atoi(argv[2]);
-    if (argc >= 4) protocol = atoi(argv[3]);
-    if (argc >= 5) pulseLength = atoi(argv[4]);
+    if (argc >= 3)
+        PIN = atoi(argv[2]);
+    if (argc >= 4)
+        protocol = atoi(argv[3]);
+    if (argc >= 5)
+        pulseLength = atoi(argv[4]);
 
-    if (wiringPiSetup () == -1) return 1;
-    printf("sending code[%i]\n", code);
+    if (wiringPiSetup() == -1)
+        return 1;
+    printf("%i\n", code);
     RCSwitch mySwitch = RCSwitch();
-    if (protocol != 0) mySwitch.setProtocol(protocol);
-    if (pulseLength != 0) mySwitch.setPulseLength(pulseLength);
+    if (protocol != 0)
+        mySwitch.setProtocol(protocol);
+    if (pulseLength != 0)
+        mySwitch.setPulseLength(pulseLength);
     mySwitch.enableTransmit(PIN);
 
     mySwitch.send(code, 24);
 
     return 0;
-
 }
